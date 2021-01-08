@@ -1,6 +1,6 @@
 CHESSBOARDS_PER_ROW := "5"
 
-all: chess-openings.pdf
+all: chess-openings.pdf test
 
 chess-openings.pdf: src/open.tex src/semi.tex src/closed.tex src/indian.tex chess-openings.tex
 	mkdir -p build
