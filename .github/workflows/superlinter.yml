@@ -17,9 +17,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Run Makefile tests
+        env: 
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make test
+
       # Runs the Super-Linter action
-      - name: Run Super-Linter
-        uses: github/super-linter@v3
-        env:
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Commented out, TeX part fails
+      # [INFO]   ---------------------------
+      # [INFO]   File:[/github/workspace/chess-openings/src/003-o-italian-game-1.tex]
+      # [ERROR]   Found errors in [chktex] linter!
+      # [ERROR]   Error code: 2. Command output:[chktex: WARNING -- Could not find global resource file.
+      #- name: Run Super-Linter
+      #  uses: github/super-linter@v3
+      #  env:
+      #    DEFAULT_BRANCH: master
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
