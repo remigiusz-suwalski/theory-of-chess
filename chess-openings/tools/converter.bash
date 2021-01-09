@@ -48,12 +48,11 @@ parse_openings() {
 REPOSITORY_ROOT="$(dirname "$(dirname "$0")")"
 
 CHESSBOARDS_IN_A_ROW="${1:-4}"
-TARGET_FILE="$2"
-LETTER=$3 # o, s, c or n
+LETTER="$2" # o, s, c, n or f
 
 SCALEBOX_WIDTH="$(bc -l <<< "2.8/${CHESSBOARDS_IN_A_ROW}" | head -c 4)"
 MINIPAGE_WIDTH="$(bc -l <<< "1/${CHESSBOARDS_IN_A_ROW} - 0.025" | head -c 4)"
 
 parse_openings | sed \
     -e "s@SCALEBOX_WIDTH@${SCALEBOX_WIDTH}@g" \
-    -e "s@MINIPAGE_WIDTH@${MINIPAGE_WIDTH}@g" > "${TARGET_FILE}"
+    -e "s@MINIPAGE_WIDTH@${MINIPAGE_WIDTH}@g"

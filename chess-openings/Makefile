@@ -8,19 +8,19 @@ chess-openings.pdf: src/open.tex src/semi.tex src/closed.tex src/indian.tex src/
 	cp build/chess-openings.pdf .
 
 src/open.tex: src/*-o-*.tex
-	./tools/converter.bash $(CHESSBOARDS_PER_ROW) src/open.tex o
+	./tools/converter.bash $(CHESSBOARDS_PER_ROW) o > src/open.tex
 
 src/semi.tex: src/*-s-*.tex
-	./tools/converter.bash $(CHESSBOARDS_PER_ROW) src/semi.tex s
+	./tools/converter.bash $(CHESSBOARDS_PER_ROW) s > src/semi.tex
 
 src/closed.tex: src/*-c-*.tex
-	./tools/converter.bash $(CHESSBOARDS_PER_ROW) src/closed.tex c
+	./tools/converter.bash $(CHESSBOARDS_PER_ROW) c > src/closed.tex
 
 src/indian.tex: src/*-n-*.tex
-	./tools/converter.bash $(CHESSBOARDS_PER_ROW) src/indian.tex n
+	./tools/converter.bash $(CHESSBOARDS_PER_ROW) n > src/indian.tex
 
 src/flank.tex: src/*-f-*.tex
-	./tools/converter.bash $(CHESSBOARDS_PER_ROW) src/flank.tex f
+	./tools/converter.bash $(CHESSBOARDS_PER_ROW) f > src/flank.tex
 
 clean:
 	rm -rf build chess-openings.pdf src/open.tex src/semi.tex src/closed.tex src/indian.tex src/flank.tex

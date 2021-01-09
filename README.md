@@ -12,11 +12,11 @@ make
 inside top directory or descent into `chess-openings` subdirectory and then
 ```
 # if you modified anything in src/, if not - skip
-./tools/converter.bash 5 src/open.tex o
-./tools/converter.bash 5 src/semi.tex s
-./tools/converter.bash 5 src/closed.tex c
-./tools/converter.bash 5 src/indian.tex n
-./tools/converter.bash 5 src/flank.tex f
+./tools/converter.bash 5 o > src/open.tex
+./tools/converter.bash 5 s > src/semi.tex
+./tools/converter.bash 5 c > src/closed.tex
+./tools/converter.bash 5 n > src/indian.tex
+./tools/converter.bash 5 f > src/flank.tex
 
 pdflatex chess-openings.tex
 ```
