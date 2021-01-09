@@ -27,4 +27,6 @@ clean:
 
 test:
 	if grep -El '(0-|-0)' src/*.tex; then echo 'Castling in above files should be written with uppercase o, not zero' 2>&1 && exit 1; fi
-	for file in $$(find . -type f -name '*.tex'); do { rm "$${file}"; awk 1 > "$${file}"; } < "$${file}"; done
+
+lint:
+	for file in $$(find . -type f -name '*.tex'); do { rm "$${file}"; awk 1 | sed -e 's/0-0-0/O-O-O/g' -e 's/0-0/O-O/g' > "$${file}"; } < "$${file}"; done
