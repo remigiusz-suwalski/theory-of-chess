@@ -31,7 +31,7 @@ parse_openings() {
             print_head
             cat "${opening}"
             print_tail
-        } | grep -v 'PGN' | sed -r "s@FEN_BOARD@${fen}@g"
+        } | grep -v 'PGN' | sed "s@FEN_BOARD@${fen}@g"
         counter=$((counter+1))
         if ! (( counter % CHESSBOARDS_IN_A_ROW )); then
             echo "\newline"
@@ -45,15 +45,14 @@ parse_openings() {
     fi
 }
 
-REPOSITORY_ROOT="$(readlink -f "$(dirname "$(dirname "$0")")")"
+REPOSITORY_ROOT="$(dirname "$(dirname "$0")")"
 
 CHESSBOARDS_IN_A_ROW="${1:-4}"
-TARGET_FILE="$2"
-LETTER=$3 # o, s, c or n
+LETTER="$2" # o, s, c, n or f
 
 SCALEBOX_WIDTH="$(bc -l <<< "2.8/${CHESSBOARDS_IN_A_ROW}" | head -c 4)"
 MINIPAGE_WIDTH="$(bc -l <<< "1/${CHESSBOARDS_IN_A_ROW} - 0.025" | head -c 4)"
 
-parse_openings | sed -r \
+parse_openings | sed \
     -e "s@SCALEBOX_WIDTH@${SCALEBOX_WIDTH}@g" \
-    -e "s@MINIPAGE_WIDTH@${MINIPAGE_WIDTH}@g" > "${TARGET_FILE}"
+    -e "s@MINIPAGE_WIDTH@${MINIPAGE_WIDTH}@g"
