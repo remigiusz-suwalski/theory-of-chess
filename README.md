@@ -4,6 +4,11 @@ A collection of loosely related notes I prepared during my chess self-study.
 ## Chess openings
 ![chess openings](https://i.imgur.com/kJXmGNg.png)
 
+## Printable PDF
+A printable PDF can be [found in the releases](https://github.com/remigiusz-suwalski/theory-of-chess/releases/).
+
+## Generate locally
+
 To generate the PDF file locally you need LaTeX (with xskak package), Make is optional but highly recommended.
 Either invoke
 ```
