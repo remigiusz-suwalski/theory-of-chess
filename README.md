@@ -7,7 +7,7 @@ A collection of loosely related notes I prepared during my chess self-study.
 ## Printable PDF
 A printable PDF can be [found in the releases](https://github.com/remigiusz-suwalski/theory-of-chess/releases/).
 
-## Generate localy
+## Generate locally
 
 To generate the PDF file locally you need LaTeX (with xskak package), Make is optional but highly recommended.
 Either invoke
@@ -38,4 +38,3 @@ Each opening is stored in separate file. Syntax is as follows:
 % edit both. The hardcoded FEN wouldn't be needed if text and chessboards
 % were swapped but it IMO it was not eye-pleasing.
 ```
-
